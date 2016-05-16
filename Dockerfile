@@ -4,3 +4,4 @@ RUN echo "deb http://ppa.launchpad.net/wxformbuilder/release/ubuntu xenial main"
     apt-get update &&\
     apt-get install -y --allow-unauthenticated xterm aptitude emacs-nox wxformbuilder
 
+CMD wxformbuilder
