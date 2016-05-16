@@ -17,10 +17,10 @@ start() ->
   XRC = resources(Dir,Files),
   [Frame] = frames(WX,XRC,["MyFrame1"]),
   connect_app_menu(Frame,[?wxID_EXIT]),
-  menues(XRC,Frame,"m_menubar1",["m_menuItem1","m_menuItem2"]),
+  menu_items(XRC,Frame,"m_menubar1",["m_menuItem1","m_menuItem2"]),
   buttons(Frame,["m_button2"]),
-  [Txt] = texts(Frame,["m_textCtrl1"]),
-  combos(Frame,["m_comboBox1"]),
+  [Txt] = text_ctrls(Frame,["m_textCtrl1"]),
+  combo_boxes(Frame,["m_comboBox1"]),
   wxFrame:show(Frame),
   loop(Txt).
 
@@ -55,18 +55,18 @@ frames(WX,XRC,FrameNames) ->
 connect_app_menu(Frame,Ids) ->
   [wxFrame:connect(Frame,command_menu_selected,[{id,Id}]) || Id <- Ids].
 
-menues(XRC,Frame,Bar,Items) ->
+menu_items(XRC,Frame,Bar,Items) ->
   MenuBar = wxXmlResource:loadMenuBar(XRC,Bar),
   wxFrame:setMenuBar(Frame,MenuBar),
-  connect_items_by_name(Frame,command_menu_selected,wxMenu,Items).
+  connect_items_by_name(Frame,command_menu_selected,wxMenuItem,Items).
 
 buttons(Frame,Buttons) ->
   connect_by_name(Frame,command_button_clicked,wxButton,Buttons).
 
-texts(Frame,Texts) ->
+text_ctrls(Frame,Texts) ->
   connect_by_name(Frame,command_text_enter,wxTextCtrl,Texts).
 
-combos(Frame,Combos) ->
+combo_boxes(Frame,Combos) ->
   connect_by_name(Frame,command_combobox_selected,wxComboBox,Combos).
 
 connect_items_by_name(Frame,Command,Type,Items) ->
@@ -74,9 +74,7 @@ connect_items_by_name(Frame,Command,Type,Items) ->
     fun(Item) ->
         ID = wxXmlResource:getXRCID(Item),
         wxFrame:connect(Frame,Command,[{id,ID}]),
-        Res = wxXmlResource:xrcctrl(Frame,Item,Type),
-%%        Type:connect(Res,Command),
-        Res
+        wxXmlResource:xrcctrl(Frame,Item,Type)
     end,
     Items).
 
