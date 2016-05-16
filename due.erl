@@ -10,27 +10,44 @@
 
 -include_lib("wx/include/wx.hrl").
 
+-record(xwx,{id,object}).
+
 start() ->
   Dir = "/Users/masse/git/wx",
   Files = ["due.xrc","duem.xrc"],
   WX = wx:new(),
   XRC = resources(Dir,Files),
   [Frame] = frames(WX,XRC,["MyFrame1"]),
-  connect_app_menu(Frame,[?wxID_EXIT]),
+  [Exit] = connect_app_menu(Frame,[?wxID_EXIT]),
   [MI1,MI2] = menu_items(XRC,Frame,"m_menubar1",["m_menuItem1","m_menuItem2"]),
   [But] = buttons(Frame,["m_button2"]),
   [Txt] = text_ctrls(Frame,["m_textCtrl1"]),
   [CBx] = combo_boxes(Frame,["m_comboBox1"]),
   wxFrame:show(Frame),
-  loop({MI1,MI2,But,Txt,CBx}).
+  loop(MI1,MI2,But,Txt,CBx,Exit).
 
-loop(Ctrls) ->
+-define(event(X), #wx{id = _ID} when _ID == X#xwx.id).
+loop(MI1,MI2,But,Txt,CBx,Exit) ->
   receive
+    #wx{event=#wxClose{}} ->
+      io:format("Got ~p ~n", [close]);
+    ?event(MI1) ->
+      io:format("Got ~p ~n", [menu_item1]);
+    ?event(MI2) ->
+      io:format("Got ~p ~n", [menu_item2]);
+    ?event(But) ->
+      io:format("Got ~p ~n", [button]);
+    ?event(Txt) ->
+      io:format("Got ~p ~n", [text_ctrl]);
+    ?event(CBx) ->
+      io:format("Got ~p ~n", [combobox]);
+    ?event(Exit) ->
+      io:format("Got ~p ~n", [exit]);
     Ev ->
       io:format("Got ~p ~n", [Ev]),
-      io:fwrite("~p~n",[Ctrls]),
-      loop(Ctrls)
-  end.
+      io:fwrite("~p~n",[{MI1,MI2,But,Txt,CBx,Exit}])
+  end,
+  loop(MI1,MI2,But,Txt,CBx,Exit).
 
 resources(Dir,Files) ->
   XRC = wxXmlResource:get(),
@@ -53,7 +70,12 @@ frames(WX,XRC,FrameNames) ->
     FrameNames).
 
 connect_app_menu(Frame,Ids) ->
-  [wxFrame:connect(Frame,command_menu_selected,[{id,Id}]) || Id <- Ids].
+  lists:map(
+    fun(Id) ->
+        wxFrame:connect(Frame,command_menu_selected,[{id,Id}]),
+        #xwx{id=Id,object=Frame}
+    end,
+    Ids).
 
 menu_items(XRC,Frame,Bar,Items) ->
   MenuBar = wxXmlResource:loadMenuBar(XRC,Bar),
@@ -74,7 +96,7 @@ connect_items_by_name(Bar,Command,Items) ->
     fun(Item) ->
         ID = wxXmlResource:getXRCID(Item),
         wxMenuBar:connect(Bar,Command,[{id,ID}]),
-        {ID,Bar}
+        #xwx{id=ID,object=Bar}
     end,
     Items).
 
@@ -84,6 +106,6 @@ connect_by_name(Frame,Command,Type,Items) ->
         ID = wxXmlResource:getXRCID(Item),
         Res = wxXmlResource:xrcctrl(Frame,Item,Type),
         Type:connect(Res,Command),
-        {ID,Res}
+        #xwx{id=ID,object=Res}
     end,
     Items).
