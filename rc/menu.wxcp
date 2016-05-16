@@ -1,0 +1,687 @@
+{
+	"metadata":	{
+		"m_generatedFilesDir":	".",
+		"m_objCounter":	0,
+		"m_includeFiles":	[],
+		"m_bitmapFunction":	"wxCrafterNqnf7uInitBitmapResources",
+		"m_bitmapsFile":	"",
+		"m_GenerateCodeTypes":	1382566409,
+		"m_outputFileName":	"",
+		"m_firstWindowId":	10000,
+		"m_useEnum":	true,
+		"m_useUnderscoreMacro":	true,
+		"m_addHandlers":	true
+	},
+	"windows":	[{
+			"m_type":	4457,
+			"proportion":	0,
+			"border":	0,
+			"gbSpan":	"",
+			"gbPosition":	"",
+			"m_styles":	["wxMB_DOCKABLE"],
+			"m_sizerFlags":	[],
+			"m_properties":	[{
+					"type":	"winid",
+					"m_label":	"ID:",
+					"m_winid":	"wxID_ANY"
+				}, {
+					"type":	"string",
+					"m_label":	"Size:",
+					"m_value":	"-1,-1"
+				}, {
+					"type":	"string",
+					"m_label":	"Minimum Size:",
+					"m_value":	"-1,-1"
+				}, {
+					"type":	"string",
+					"m_label":	"Name:",
+					"m_value":	"main_menu"
+				}, {
+					"type":	"multi-string",
+					"m_label":	"Tooltip:",
+					"m_value":	""
+				}, {
+					"type":	"colour",
+					"m_label":	"Bg Colour:",
+					"colour":	"<Default>"
+				}, {
+					"type":	"colour",
+					"m_label":	"Fg Colour:",
+					"colour":	"<Default>"
+				}, {
+					"type":	"font",
+					"m_label":	"Font:",
+					"m_value":	""
+				}, {
+					"type":	"bool",
+					"m_label":	"Hidden",
+					"m_value":	false
+				}, {
+					"type":	"bool",
+					"m_label":	"Disabled",
+					"m_value":	false
+				}, {
+					"type":	"bool",
+					"m_label":	"Focused",
+					"m_value":	false
+				}, {
+					"type":	"string",
+					"m_label":	"Class Name:",
+					"m_value":	""
+				}, {
+					"type":	"string",
+					"m_label":	"Include File:",
+					"m_value":	""
+				}, {
+					"type":	"string",
+					"m_label":	"Style:",
+					"m_value":	""
+				}],
+			"m_events":	[],
+			"m_children":	[{
+					"m_type":	4458,
+					"proportion":	0,
+					"border":	0,
+					"gbSpan":	"",
+					"gbPosition":	"",
+					"m_styles":	[],
+					"m_sizerFlags":	[],
+					"m_properties":	[{
+							"type":	"string",
+							"m_label":	"Name:",
+							"m_value":	"file_tool_or_menuitem"
+						}, {
+							"type":	"string",
+							"m_label":	"Label:",
+							"m_value":	"_File"
+						}],
+					"m_events":	[],
+					"m_children":	[{
+							"m_type":	4459,
+							"proportion":	0,
+							"border":	0,
+							"gbSpan":	"",
+							"gbPosition":	"",
+							"m_styles":	[],
+							"m_sizerFlags":	[],
+							"m_properties":	[{
+									"type":	"winid",
+									"m_label":	"ID:",
+									"m_winid":	"wxID_ANY"
+								}, {
+									"type":	"string",
+									"m_label":	"Name:",
+									"m_value":	"unload_resource_menuitem"
+								}, {
+									"type":	"string",
+									"m_label":	"Label:",
+									"m_value":	"_Unload resource\\tCtrl-U"
+								}, {
+									"type":	"string",
+									"m_label":	"Shortcut:",
+									"m_value":	""
+								}, {
+									"type":	"string",
+									"m_label":	"Help String:",
+									"m_value":	"Unload basic dialog resource"
+								}, {
+									"type":	"bitmapPicker",
+									"m_label":	"Bitmap File:",
+									"m_path":	""
+								}, {
+									"type":	"choice",
+									"m_label":	"Kind:",
+									"m_selection":	0,
+									"m_options":	["normal", "checkable", "radio", "separator"]
+								}, {
+									"type":	"bool",
+									"m_label":	"Checked",
+									"m_value":	false
+								}],
+							"m_events":	[],
+							"m_children":	[]
+						}, {
+							"m_type":	4459,
+							"proportion":	0,
+							"border":	0,
+							"gbSpan":	"",
+							"gbPosition":	"",
+							"m_styles":	[],
+							"m_sizerFlags":	[],
+							"m_properties":	[{
+									"type":	"winid",
+									"m_label":	"ID:",
+									"m_winid":	"wxID_ANY"
+								}, {
+									"type":	"string",
+									"m_label":	"Name:",
+									"m_value":	"reload_resource_menuitem"
+								}, {
+									"type":	"string",
+									"m_label":	"Label:",
+									"m_value":	"_Reload resource\\tCtrl-R"
+								}, {
+									"type":	"string",
+									"m_label":	"Shortcut:",
+									"m_value":	""
+								}, {
+									"type":	"string",
+									"m_label":	"Help String:",
+									"m_value":	"Reload basic dialog resource"
+								}, {
+									"type":	"bitmapPicker",
+									"m_label":	"Bitmap File:",
+									"m_path":	""
+								}, {
+									"type":	"choice",
+									"m_label":	"Kind:",
+									"m_selection":	0,
+									"m_options":	["normal", "checkable", "radio", "separator"]
+								}, {
+									"type":	"bool",
+									"m_label":	"Checked",
+									"m_value":	false
+								}],
+							"m_events":	[],
+							"m_children":	[]
+						}, {
+							"m_type":	4459,
+							"proportion":	0,
+							"border":	0,
+							"gbSpan":	"",
+							"gbPosition":	"",
+							"m_styles":	[],
+							"m_sizerFlags":	[],
+							"m_properties":	[{
+									"type":	"winid",
+									"m_label":	"ID:",
+									"m_winid":	"wxID_ANY"
+								}, {
+									"type":	"string",
+									"m_label":	"Name:",
+									"m_value":	"wxID_EXIT"
+								}, {
+									"type":	"string",
+									"m_label":	"Label:",
+									"m_value":	"E_xit\\tAlt-X"
+								}, {
+									"type":	"string",
+									"m_label":	"Shortcut:",
+									"m_value":	""
+								}, {
+									"type":	"string",
+									"m_label":	"Help String:",
+									"m_value":	"Exit this application"
+								}, {
+									"type":	"bitmapPicker",
+									"m_label":	"Bitmap File:",
+									"m_path":	""
+								}, {
+									"type":	"choice",
+									"m_label":	"Kind:",
+									"m_selection":	0,
+									"m_options":	["normal", "checkable", "radio", "separator"]
+								}, {
+									"type":	"bool",
+									"m_label":	"Checked",
+									"m_value":	false
+								}],
+							"m_events":	[],
+							"m_children":	[]
+						}]
+				}, {
+					"m_type":	4458,
+					"proportion":	0,
+					"border":	0,
+					"gbSpan":	"",
+					"gbPosition":	"",
+					"m_styles":	[],
+					"m_sizerFlags":	[],
+					"m_properties":	[{
+							"type":	"string",
+							"m_label":	"Name:",
+							"m_value":	"basic_demos_menu"
+						}, {
+							"type":	"string",
+							"m_label":	"Label:",
+							"m_value":	"_Basic"
+						}],
+					"m_events":	[],
+					"m_children":	[{
+							"m_type":	4459,
+							"proportion":	0,
+							"border":	0,
+							"gbSpan":	"",
+							"gbPosition":	"",
+							"m_styles":	[],
+							"m_sizerFlags":	[],
+							"m_properties":	[{
+									"type":	"winid",
+									"m_label":	"ID:",
+									"m_winid":	"wxID_ANY"
+								}, {
+									"type":	"string",
+									"m_label":	"Name:",
+									"m_value":	"non_derived_dialog_tool_or_menuitem"
+								}, {
+									"type":	"string",
+									"m_label":	"Label:",
+									"m_value":	"_Non-Derived Dialog Example"
+								}, {
+									"type":	"string",
+									"m_label":	"Shortcut:",
+									"m_value":	""
+								}, {
+									"type":	"string",
+									"m_label":	"Help String:",
+									"m_value":	"The basic instance of wxDialog loaded via XRC"
+								}, {
+									"type":	"bitmapPicker",
+									"m_label":	"Bitmap File:",
+									"m_path":	"basicdlg.xpm"
+								}, {
+									"type":	"choice",
+									"m_label":	"Kind:",
+									"m_selection":	0,
+									"m_options":	["normal", "checkable", "radio", "separator"]
+								}, {
+									"type":	"bool",
+									"m_label":	"Checked",
+									"m_value":	false
+								}],
+							"m_events":	[],
+							"m_children":	[]
+						}, {
+							"m_type":	4459,
+							"proportion":	0,
+							"border":	0,
+							"gbSpan":	"",
+							"gbPosition":	"",
+							"m_styles":	[],
+							"m_sizerFlags":	[],
+							"m_properties":	[{
+									"type":	"winid",
+									"m_label":	"ID:",
+									"m_winid":	"wxID_ANY"
+								}, {
+									"type":	"string",
+									"m_label":	"Name:",
+									"m_value":	"derived_tool_or_menuitem"
+								}, {
+									"type":	"string",
+									"m_label":	"Label:",
+									"m_value":	"_Derived Dialog Example"
+								}, {
+									"type":	"string",
+									"m_label":	"Shortcut:",
+									"m_value":	""
+								}, {
+									"type":	"string",
+									"m_label":	"Help String:",
+									"m_value":	"The most important example: load an XRC for a derived dialog"
+								}, {
+									"type":	"bitmapPicker",
+									"m_label":	"Bitmap File:",
+									"m_path":	"derivdlg.xpm"
+								}, {
+									"type":	"choice",
+									"m_label":	"Kind:",
+									"m_selection":	0,
+									"m_options":	["normal", "checkable", "radio", "separator"]
+								}, {
+									"type":	"bool",
+									"m_label":	"Checked",
+									"m_value":	false
+								}],
+							"m_events":	[],
+							"m_children":	[]
+						}, {
+							"m_type":	4459,
+							"proportion":	0,
+							"border":	0,
+							"gbSpan":	"",
+							"gbPosition":	"",
+							"m_styles":	[],
+							"m_sizerFlags":	[],
+							"m_properties":	[{
+									"type":	"winid",
+									"m_label":	"ID:",
+									"m_winid":	"wxID_ANY"
+								}, {
+									"type":	"string",
+									"m_label":	"Name:",
+									"m_value":	"controls_tool_or_menuitem"
+								}, {
+									"type":	"string",
+									"m_label":	"Label:",
+									"m_value":	"_Controls Example"
+								}, {
+									"type":	"string",
+									"m_label":	"Shortcut:",
+									"m_value":	""
+								}, {
+									"type":	"string",
+									"m_label":	"Help String:",
+									"m_value":	"A notebook displaying all the wxWidgets controls"
+								}, {
+									"type":	"bitmapPicker",
+									"m_label":	"Bitmap File:",
+									"m_path":	"controls.xpm"
+								}, {
+									"type":	"choice",
+									"m_label":	"Kind:",
+									"m_selection":	0,
+									"m_options":	["normal", "checkable", "radio", "separator"]
+								}, {
+									"type":	"bool",
+									"m_label":	"Checked",
+									"m_value":	false
+								}],
+							"m_events":	[],
+							"m_children":	[]
+						}, {
+							"m_type":	4459,
+							"proportion":	0,
+							"border":	0,
+							"gbSpan":	"",
+							"gbPosition":	"",
+							"m_styles":	[],
+							"m_sizerFlags":	[],
+							"m_properties":	[{
+									"type":	"winid",
+									"m_label":	"ID:",
+									"m_winid":	"wxID_ANY"
+								}, {
+									"type":	"string",
+									"m_label":	"Name:",
+									"m_value":	"uncentered_tool_or_menuitem"
+								}, {
+									"type":	"string",
+									"m_label":	"Label:",
+									"m_value":	"_Uncentered Example"
+								}, {
+									"type":	"string",
+									"m_label":	"Shortcut:",
+									"m_value":	""
+								}, {
+									"type":	"string",
+									"m_label":	"Help String:",
+									"m_value":	"Disable autocentering of a dialog on its parent"
+								}, {
+									"type":	"bitmapPicker",
+									"m_label":	"Bitmap File:",
+									"m_path":	"uncenter.xpm"
+								}, {
+									"type":	"choice",
+									"m_label":	"Kind:",
+									"m_selection":	0,
+									"m_options":	["normal", "checkable", "radio", "separator"]
+								}, {
+									"type":	"bool",
+									"m_label":	"Checked",
+									"m_value":	false
+								}],
+							"m_events":	[],
+							"m_children":	[]
+						}]
+				}, {
+					"m_type":	4458,
+					"proportion":	0,
+					"border":	0,
+					"gbSpan":	"",
+					"gbPosition":	"",
+					"m_styles":	[],
+					"m_sizerFlags":	[],
+					"m_properties":	[{
+							"type":	"string",
+							"m_label":	"Name:",
+							"m_value":	"advanced_demos_menu"
+						}, {
+							"type":	"string",
+							"m_label":	"Label:",
+							"m_value":	"_Advanced"
+						}],
+					"m_events":	[],
+					"m_children":	[{
+							"m_type":	4459,
+							"proportion":	0,
+							"border":	0,
+							"gbSpan":	"",
+							"gbPosition":	"",
+							"m_styles":	[],
+							"m_sizerFlags":	[],
+							"m_properties":	[{
+									"type":	"winid",
+									"m_label":	"ID:",
+									"m_winid":	"wxID_ANY"
+								}, {
+									"type":	"string",
+									"m_label":	"Name:",
+									"m_value":	"custom_class_tool_or_menuitem"
+								}, {
+									"type":	"string",
+									"m_label":	"Label:",
+									"m_value":	"_Custom Class Example"
+								}, {
+									"type":	"string",
+									"m_label":	"Shortcut:",
+									"m_value":	""
+								}, {
+									"type":	"string",
+									"m_label":	"Help String:",
+									"m_value":	"Embed your own custom classes into an XRC"
+								}, {
+									"type":	"bitmapPicker",
+									"m_label":	"Bitmap File:",
+									"m_path":	"custclas.xpm"
+								}, {
+									"type":	"choice",
+									"m_label":	"Kind:",
+									"m_selection":	0,
+									"m_options":	["normal", "checkable", "radio", "separator"]
+								}, {
+									"type":	"bool",
+									"m_label":	"Checked",
+									"m_value":	false
+								}],
+							"m_events":	[],
+							"m_children":	[]
+						}, {
+							"m_type":	4459,
+							"proportion":	0,
+							"border":	0,
+							"gbSpan":	"",
+							"gbPosition":	"",
+							"m_styles":	[],
+							"m_sizerFlags":	[],
+							"m_properties":	[{
+									"type":	"winid",
+									"m_label":	"ID:",
+									"m_winid":	"wxID_ANY"
+								}, {
+									"type":	"string",
+									"m_label":	"Name:",
+									"m_value":	"platform_property_tool_or_menuitem"
+								}, {
+									"type":	"string",
+									"m_label":	"Label:",
+									"m_value":	"_Platform Specific Example"
+								}, {
+									"type":	"string",
+									"m_label":	"Shortcut:",
+									"m_value":	""
+								}, {
+									"type":	"string",
+									"m_label":	"Help String:",
+									"m_value":	"Customize parts of an interface for a desired platform"
+								}, {
+									"type":	"bitmapPicker",
+									"m_label":	"Bitmap File:",
+									"m_path":	"platform.xpm"
+								}, {
+									"type":	"choice",
+									"m_label":	"Kind:",
+									"m_selection":	0,
+									"m_options":	["normal", "checkable", "radio", "separator"]
+								}, {
+									"type":	"bool",
+									"m_label":	"Checked",
+									"m_value":	false
+								}],
+							"m_events":	[],
+							"m_children":	[]
+						}, {
+							"m_type":	4459,
+							"proportion":	0,
+							"border":	0,
+							"gbSpan":	"",
+							"gbPosition":	"",
+							"m_styles":	[],
+							"m_sizerFlags":	[],
+							"m_properties":	[{
+									"type":	"winid",
+									"m_label":	"ID:",
+									"m_winid":	"wxID_ANY"
+								}, {
+									"type":	"string",
+									"m_label":	"Name:",
+									"m_value":	"art_provider_tool_or_menuitem"
+								}, {
+									"type":	"string",
+									"m_label":	"Label:",
+									"m_value":	"wx_ArtProvider Example"
+								}, {
+									"type":	"string",
+									"m_label":	"Shortcut:",
+									"m_value":	""
+								}, {
+									"type":	"string",
+									"m_label":	"Help String:",
+									"m_value":	"Use wxArtProvider to insert desired icons at runtime"
+								}, {
+									"type":	"bitmapPicker",
+									"m_label":	"Bitmap File:",
+									"m_path":	"artprov.xpm"
+								}, {
+									"type":	"choice",
+									"m_label":	"Kind:",
+									"m_selection":	0,
+									"m_options":	["normal", "checkable", "radio", "separator"]
+								}, {
+									"type":	"bool",
+									"m_label":	"Checked",
+									"m_value":	false
+								}],
+							"m_events":	[],
+							"m_children":	[]
+						}, {
+							"m_type":	4459,
+							"proportion":	0,
+							"border":	0,
+							"gbSpan":	"",
+							"gbPosition":	"",
+							"m_styles":	[],
+							"m_sizerFlags":	[],
+							"m_properties":	[{
+									"type":	"winid",
+									"m_label":	"ID:",
+									"m_winid":	"wxID_ANY"
+								}, {
+									"type":	"string",
+									"m_label":	"Name:",
+									"m_value":	"variable_expansion_tool_or_menuitem"
+								}, {
+									"type":	"string",
+									"m_label":	"Label:",
+									"m_value":	"_Variable Expansion Example"
+								}, {
+									"type":	"string",
+									"m_label":	"Shortcut:",
+									"m_value":	""
+								}, {
+									"type":	"string",
+									"m_label":	"Help String:",
+									"m_value":	"Replace variables in the XRC file at runtime"
+								}, {
+									"type":	"bitmapPicker",
+									"m_label":	"Bitmap File:",
+									"m_path":	"variable.xpm"
+								}, {
+									"type":	"choice",
+									"m_label":	"Kind:",
+									"m_selection":	0,
+									"m_options":	["normal", "checkable", "radio", "separator"]
+								}, {
+									"type":	"bool",
+									"m_label":	"Checked",
+									"m_value":	false
+								}],
+							"m_events":	[],
+							"m_children":	[]
+						}]
+				}, {
+					"m_type":	4458,
+					"proportion":	0,
+					"border":	0,
+					"gbSpan":	"",
+					"gbPosition":	"",
+					"m_styles":	[],
+					"m_sizerFlags":	[],
+					"m_properties":	[{
+							"type":	"string",
+							"m_label":	"Name:",
+							"m_value":	"help_menu"
+						}, {
+							"type":	"string",
+							"m_label":	"Label:",
+							"m_value":	"_Help"
+						}],
+					"m_events":	[],
+					"m_children":	[{
+							"m_type":	4459,
+							"proportion":	0,
+							"border":	0,
+							"gbSpan":	"",
+							"gbPosition":	"",
+							"m_styles":	[],
+							"m_sizerFlags":	[],
+							"m_properties":	[{
+									"type":	"winid",
+									"m_label":	"ID:",
+									"m_winid":	"wxID_ANY"
+								}, {
+									"type":	"string",
+									"m_label":	"Name:",
+									"m_value":	"wxID_ABOUT"
+								}, {
+									"type":	"string",
+									"m_label":	"Label:",
+									"m_value":	"_About..."
+								}, {
+									"type":	"string",
+									"m_label":	"Shortcut:",
+									"m_value":	""
+								}, {
+									"type":	"string",
+									"m_label":	"Help String:",
+									"m_value":	"About this application"
+								}, {
+									"type":	"bitmapPicker",
+									"m_label":	"Bitmap File:",
+									"m_path":	""
+								}, {
+									"type":	"choice",
+									"m_label":	"Kind:",
+									"m_selection":	0,
+									"m_options":	["normal", "checkable", "radio", "separator"]
+								}, {
+									"type":	"bool",
+									"m_label":	"Checked",
+									"m_value":	false
+								}],
+							"m_events":	[],
+							"m_children":	[]
+						}]
+				}]
+		}]
+}
