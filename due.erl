@@ -16,13 +16,21 @@ start() ->
   WX = wx:new(),
   XRC = resources(Dir,Files),
   [Frame] = frames(WX,XRC,["MyFrame1"]),
-  menues(XRC,Frame,"m_menubar1",["m_menuItem1","m_menuItem2"]),
   connect_app_menu(Frame,[?wxID_EXIT]),
+  menues(XRC,Frame,"m_menubar1",["m_menuItem1","m_menuItem2"]),
   buttons(Frame,["m_button2"]),
-  text(Frame,["m_textCtrl1"]),
-  combo(Frame,["m_comboBox1"]),
+  [Txt] = texts(Frame,["m_textCtrl1"]),
+  combos(Frame,["m_comboBox1"]),
   wxFrame:show(Frame),
-  loop().
+  loop(Txt).
+
+loop(Txt) ->
+  receive
+    Ev ->
+      io:format("Got ~p ~n", [Ev]),
+      io:fwrite("~p~n",[wxTextCtrl:getValue(Txt)]),
+      loop(Txt)
+  end.
 
 resources(Dir,Files) ->
   XRC = wxXmlResource:get(),
@@ -50,29 +58,33 @@ connect_app_menu(Frame,Ids) ->
 menues(XRC,Frame,Bar,Items) ->
   MenuBar = wxXmlResource:loadMenuBar(XRC,Bar),
   wxFrame:setMenuBar(Frame,MenuBar),
-  connect_items_by_name(Frame,command_menu_selected,Items).
+  connect_items_by_name(Frame,command_menu_selected,wxMenu,Items).
 
 buttons(Frame,Buttons) ->
-  connect_items_by_name(Frame,command_button_clicked,Buttons).
+  connect_by_name(Frame,command_button_clicked,wxButton,Buttons).
 
-text(Frame,Texts) ->
-  connect_items_by_name(Frame,command_text_enter,Texts).
+texts(Frame,Texts) ->
+  connect_by_name(Frame,command_text_enter,wxTextCtrl,Texts).
 
-combo(Frame,Combos) ->
-  connect_items_by_name(Frame,command_combobox_selected,Combos).
+combos(Frame,Combos) ->
+  connect_by_name(Frame,command_combobox_selected,wxComboBox,Combos).
 
-connect_items_by_name(Frame,Command,Items) ->
+connect_items_by_name(Frame,Command,Type,Items) ->
   lists:map(
     fun(Item) ->
         ID = wxXmlResource:getXRCID(Item),
         wxFrame:connect(Frame,Command,[{id,ID}]),
-        ID
+        Res = wxXmlResource:xrcctrl(Frame,Item,Type),
+%%        Type:connect(Res,Command),
+        Res
     end,
     Items).
 
-loop() ->
-  receive
-    Ev ->
-      io:format("Got ~p ~n", [Ev]),
-      loop()
-  end.
+connect_by_name(Frame,Command,Type,Items) ->
+  lists:map(
+    fun(Item) ->
+        Res = wxXmlResource:xrcctrl(Frame,Item,Type),
+        Type:connect(Res,Command),
+        Res
+    end,
+    Items).
