@@ -19,6 +19,8 @@ start() ->
   menues(XRC,Frame,"m_menubar1",["m_menuItem1","m_menuItem2"]),
   connect_app_menu(Frame,[?wxID_EXIT]),
   buttons(Frame,["m_button2"]),
+  text(Frame,["m_textCtrl1"]),
+  combo(Frame,["m_comboBox1"]),
   wxFrame:show(Frame),
   loop().
 
@@ -52,6 +54,12 @@ menues(XRC,Frame,Bar,Items) ->
 
 buttons(Frame,Buttons) ->
   connect_items_by_name(Frame,command_button_clicked,Buttons).
+
+text(Frame,Texts) ->
+  connect_items_by_name(Frame,command_text_enter,Texts).
+
+combo(Frame,Combos) ->
+  connect_items_by_name(Frame,command_combobox_selected,Combos).
 
 connect_items_by_name(Frame,Command,Items) ->
   lists:map(

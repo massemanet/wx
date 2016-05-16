@@ -34,6 +34,7 @@
 				<flag>wxALL</flag>
 				<border>5</border>
 				<object class="wxTextCtrl" name="m_textCtrl1">
+					<style>wxTE_PROCESS_ENTER|wxTE_PROCESS_TAB</style>
 					<value></value>
 					<maxlength>0</maxlength>
 				</object>
@@ -43,29 +44,21 @@
 				<flag>wxALL</flag>
 				<border>5</border>
 				<object class="wxComboBox" name="m_comboBox1">
-					<value>Combo!</value>
-					<content />
+					<style>wxTE_PROCESS_ENTER|wxCB_DROPDOWN</style>
+					<value>nedit</value>
+					<content>
+						<item>nedit</item>
+						<item>vim</item>
+						<item>emacs</item>
+						<item>notepad.exe</item>
+						<item>bbedit</item>
+					</content>
 				</object>
 			</object>
 		</object>
 		<object class="wxStatusBar" name="m_statusBar1">
 			<style>wxST_SIZEGRIP</style>
 			<fields>1</fields>
-		</object>
-		<object class="wxMenuBar" name="m_menubar1">
-			<label>MyMenuBar</label>
-			<object class="wxMenu" name="m_menu1">
-				<label>MyMenu</label>
-				<object class="wxMenuItem" name="m_menuItem1">
-					<label>menuitem1</label>
-					<help></help>
-				</object>
-				<object class="separator" />
-				<object class="wxMenuItem" name="m_menuItem2">
-					<label>menuitem2</label>
-					<help></help>
-				</object>
-			</object>
 		</object>
 	</object>
 </resource>
