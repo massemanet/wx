@@ -1,0 +1,14 @@
+{application, xwx,
+ [
+  {description, "An Erlang xwx library"},
+  {vsn, "1"},
+  {modules, [
+             xwx
+            ]},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {env, []}
+ ]}.
