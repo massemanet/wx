@@ -12,14 +12,12 @@
 -include("../../../include/xwx.hrl").
 
 start() ->
-  Dir = filename:dirname(proplists:get_value(source,due:module_info(compile))),
-  Files = ["due.xrc","duem.xrc"],
   WX      = wx:new(),
-  XRC     = xwx:resources(Dir,Files),
+  XRC     = xwx:resources(?MODULE,["due.xrc","duem.xrc"]),
   [Frame] = xwx:frames(WX,XRC,["Frame"]),
   [Exit]  = xwx:app_menu(Frame,[?wxID_EXIT]),
   [SB]    = xwx:statusbar(Frame,["statusBar"]),
-  [ST]    = xwx:statictext(Frame,["staticText1"]),
+  [ST]    = xwx:statictexts(Frame,["staticText1"]),
   [M1,M2] = xwx:menubar(XRC,Frame,"menubar1",["menuItem1","menuItem2"]),
   [But]   = xwx:buttons(Frame,["button1"]),
   [Txt]   = xwx:textctrls(Frame,["textCtrl1"]),

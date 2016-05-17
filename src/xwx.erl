@@ -8,13 +8,15 @@
          menubar/4,
          statusbar/2,
          buttons/2,
-         statictext/2,
+         statictexts/2,
+         sliders/2,
          comboboxes/2,
          textctrls/2]).
 
 -include("../include/xwx.hrl").
 
-resources(Dir,Files) ->
+resources(M,Files) ->
+  Dir = filename:dirname(proplists:get_value(source,M:module_info(compile))),
   XRC = wxXmlResource:get(),
   wxXmlResource:initAllHandlers(XRC),
   lists:foreach(
@@ -42,20 +44,19 @@ app_menu(Frame,Ids) ->
     end,
     Ids).
 
-statusbar(Frame,[Item]) ->
-  ID = wxXmlResource:getXRCID(Item),
-  Obj = wxXmlResource:xrcctrl(Frame,Item,wxStatusBar),
-  [#xwx{id=ID,object=Obj}].
+statusbar(Frame,Items) ->
+  map_items(Frame,wxStatusBar,Items).
 
-statictext(Frame,[Item]) ->
-  ID = wxXmlResource:getXRCID(Item),
-  Obj = wxXmlResource:xrcctrl(Frame,Item,wxStaticText),
-  [#xwx{id=ID,object=Obj}].
+statictexts(Frame,Items) ->
+  map_items(Frame,wxStaticText,Items).
 
 menubar(XRC,Frame,Bar,Items) ->
   MenuBar = wxXmlResource:loadMenuBar(XRC,Bar),
   wxFrame:setMenuBar(Frame,MenuBar),
   connect_menu_items_by_name(MenuBar,command_menu_selected,Items).
+
+sliders(Frame,Items) ->
+  connect_by_name(Frame,command_slider_updated,wxSlider,Items).
 
 buttons(Frame,Buttons) ->
   connect_by_name(Frame,command_button_clicked,wxButton,Buttons).
@@ -65,6 +66,15 @@ textctrls(Frame,Texts) ->
 
 comboboxes(Frame,Combos) ->
   connect_by_name(Frame,command_combobox_selected,wxComboBox,Combos).
+
+map_items(Frame,Type,Items) ->
+  lists:map(
+    fun(Item) ->
+        ID = wxXmlResource:getXRCID(Item),
+        Obj = wxXmlResource:xrcctrl(Frame,Item,Type),
+        #xwx{id=ID,object=Obj}
+    end,
+    Items).
 
 connect_menu_items_by_name(Bar,Command,Items) ->
   lists:map(
