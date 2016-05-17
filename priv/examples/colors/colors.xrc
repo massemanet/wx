@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<resource xmlns="http://www.wxwindows.org/wxxrc" version="2.3.0.1">
+	<object class="wxFrame" name="Frame">
+		<style>wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL</style>
+		<size>500,300</size>
+		<title></title>
+		<centered>1</centered>
+		<aui_managed>0</aui_managed>
+		<object class="wxBoxSizer">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<option>0</option>
+				<flag>wxALL</flag>
+				<border>5</border>
+				<object class="wxStaticText" name="staticText">
+					<label>Label</label>
+					<wrap>-1</wrap>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<option>0</option>
+				<flag>wxALL</flag>
+				<border>5</border>
+				<object class="wxSlider" name="slider_r">
+					<style>wxSL_HORIZONTAL</style>
+					<value>50</value>
+					<min>0</min>
+					<max>255</max>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<option>0</option>
+				<flag>wxALL</flag>
+				<border>5</border>
+				<object class="wxSlider" name="slider_g">
+					<style>wxSL_HORIZONTAL</style>
+					<value>50</value>
+					<min>0</min>
+					<max>255</max>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<option>0</option>
+				<flag>wxALL</flag>
+				<border>5</border>
+				<object class="wxSlider" name="slider_b">
+					<style>wxSL_HORIZONTAL</style>
+					<value>50</value>
+					<min>0</min>
+					<max>255</max>
+				</object>
+			</object>
+		</object>
+	</object>
+</resource>

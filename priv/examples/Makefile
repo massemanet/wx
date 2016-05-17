@@ -1,4 +1,4 @@
-SUBS = uno due
+SUBS = uno due colors
 
 .PHONY: all $(SUBS)
 
