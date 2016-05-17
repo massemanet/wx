@@ -6,7 +6,9 @@
          frames/3,
          app_menu/2,
          menubar/4,
+         statusbar/2,
          buttons/2,
+         statictext/2,
          comboboxes/2,
          textctrls/2]).
 
@@ -40,10 +42,20 @@ app_menu(Frame,Ids) ->
     end,
     Ids).
 
+statusbar(Frame,[Item]) ->
+  ID = wxXmlResource:getXRCID(Item),
+  Obj = wxXmlResource:xrcctrl(Frame,Item,wxStatusBar),
+  [#xwx{id=ID,object=Obj}].
+
+statictext(Frame,[Item]) ->
+  ID = wxXmlResource:getXRCID(Item),
+  Obj = wxXmlResource:xrcctrl(Frame,Item,wxStaticText),
+  [#xwx{id=ID,object=Obj}].
+
 menubar(XRC,Frame,Bar,Items) ->
   MenuBar = wxXmlResource:loadMenuBar(XRC,Bar),
   wxFrame:setMenuBar(Frame,MenuBar),
-  connect_items_by_name(MenuBar,command_menu_selected,Items).
+  connect_menu_items_by_name(MenuBar,command_menu_selected,Items).
 
 buttons(Frame,Buttons) ->
   connect_by_name(Frame,command_button_clicked,wxButton,Buttons).
@@ -54,7 +66,7 @@ textctrls(Frame,Texts) ->
 comboboxes(Frame,Combos) ->
   connect_by_name(Frame,command_combobox_selected,wxComboBox,Combos).
 
-connect_items_by_name(Bar,Command,Items) ->
+connect_menu_items_by_name(Bar,Command,Items) ->
   lists:map(
     fun(Item) ->
         ID = wxXmlResource:getXRCID(Item),
