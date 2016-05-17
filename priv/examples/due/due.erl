@@ -30,15 +30,15 @@ loop(MI1,MI2,But,Txt,CBx,Exit) ->
   receive
     #wx{event=#wxClose{}} ->
       io:format("Got ~p ~n", [close]);
-    ?event(MI1,_) ->
-      io:format("Got ~p ~n", [menu_item1]);
-    ?event(MI2,_) ->
-      io:format("Got ~p ~n", [menu_item2]);
-    ?event(But,_) ->
+    ?event(MI1,command_menu_selected) ->
+      io:format("Got ~p ~n", [menuitem1]);
+    ?event(MI2,command_menu_selected) ->
+      io:format("Got ~p ~n", [menuitem2]);
+    ?event(But,command_button_clicked) ->
       io:format("Got ~p ~n", [button]);
-    ?event(Txt,_) ->
-      io:format("Got ~p ~n", [text_ctrl]);
-    ?event(CBx,_) ->
+    ?event(Txt,command_text_enter) ->
+      io:format("Got ~p ~n", [textctrl]);
+    ?event(CBx,command_combobox_selected) ->
       io:format("Got ~p ~n", [combobox]);
     ?event(Exit,_) ->
       io:format("Got ~p ~n", [exit]);
