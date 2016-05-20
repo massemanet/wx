@@ -9,6 +9,7 @@
          statusbar/2,
          buttons/2,
          statictexts/2,
+         treectrls/2,
          sliders/2,
          comboboxes/2,
          textctrls/2]).

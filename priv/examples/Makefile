@@ -1,4 +1,4 @@
-SUBS = uno due colors
+SUBS = uno due colors tree
 
 .PHONY: all $(SUBS)
 
