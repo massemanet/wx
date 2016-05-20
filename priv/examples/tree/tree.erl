@@ -13,29 +13,30 @@
 
 start() ->
   WX      = wx:new(),
-  XRC     = xwx:resources(?MODULE,["tree.xrc"]),
+  XRC     = xwx:resources(?MODULE,["tree.xrc","treem.xrc"]),
   [Frame] = xwx:frames(WX,XRC,["Frame"]),
-  [Tree]  = xwx:treectrls(Frame,["treeCtrl"]),
   [Exit]  = xwx:app_menu(Frame,[?wxID_EXIT]),
+  [M1,M2] = xwx:menubar(XRC,Frame,"menubar1",["menuItem1","menuItem2"]),
+  [Tree]  = xwx:treectrls(Frame,["treeCtrl"]),
   wxFrame:show(Frame),
   RootId = wxTreeCtrl:addRoot(Tree#xwx.object, "Root"),
   wxTreeCtrl:appendItem(Tree#xwx.object, RootId, "anItem"),
-  loop(Tree,Exit).
+  loop(M1,M2,Tree,Exit).
 
 -define(event(X,Y), #wx{id=_ID, event=#wxCommand{type=Y}} when _ID==X#xwx.id).
 
-loop(Tree,Exit) ->
+loop(M1,M2,Tree,Exit) ->
   receive
     #wx{event=#wxClose{}} ->
       io:format("Got ~p ~n", [close]),
       erlang:halt();
     ?event(Tree,Act) ->
       io:format("Got ~p ~n", [{Tree,Act}]),
-      loop(Tree,Exit);
+      loop(M1,M2,Tree,Exit);
     ?event(Exit,_) ->
       io:format("Got ~p ~n", [exit]),
       erlang:halt();
     Ev ->
       io:format("Got ~p ~n", [Ev]),
-      loop(Tree,Exit)
+      loop(M1,M2,Tree,Exit)
   end.
