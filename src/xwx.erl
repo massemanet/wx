@@ -56,16 +56,21 @@ menubar(XRC,Frame,Bar,Items) ->
   connect_menu_items_by_name(MenuBar,command_menu_selected,Items).
 
 sliders(Frame,Items) ->
-  connect_by_name(Frame,command_slider_updated,wxSlider,Items).
+  connect_by_name(Frame,[command_slider_updated],wxSlider,Items).
 
 buttons(Frame,Buttons) ->
-  connect_by_name(Frame,command_button_clicked,wxButton,Buttons).
+  connect_by_name(Frame,[command_button_clicked],wxButton,Buttons).
+
+treectrls(Frame,Treectrls) ->
+  connect_by_name(Frame,[command_tree_item_collapsed,
+                         command_tree_item_expanded,
+                         command_tree_sel_changed],wxTreeCtrl,Treectrls).
 
 textctrls(Frame,Texts) ->
-  connect_by_name(Frame,command_text_enter,wxTextCtrl,Texts).
+  connect_by_name(Frame,[command_text_enter],wxTextCtrl,Texts).
 
 comboboxes(Frame,Combos) ->
-  connect_by_name(Frame,command_combobox_selected,wxComboBox,Combos).
+  connect_by_name(Frame,[command_combobox_selected],wxComboBox,Combos).
 
 map_items(Frame,Type,Items) ->
   lists:map(
@@ -85,12 +90,12 @@ connect_menu_items_by_name(Bar,Command,Items) ->
     end,
     Items).
 
-connect_by_name(Frame,Command,Type,Items) ->
+connect_by_name(Frame,Commands,Type,Items) ->
   lists:map(
     fun(Item) ->
         ID = wxXmlResource:getXRCID(Item),
         Res = wxXmlResource:xrcctrl(Frame,Item,Type),
-        Type:connect(Res,Command),
+        [Type:connect(Res,C) || C <- Commands],
         #xwx{id=ID,object=Res}
     end,
     Items).
