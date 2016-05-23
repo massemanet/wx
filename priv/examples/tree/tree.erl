@@ -11,6 +11,8 @@
 -include_lib("wx/include/wx.hrl").
 -include("../../../include/xwx.hrl").
 
+-record(state,{menu1,menu2,tree,exit}).
+
 start() ->
   WX      = wx:new(),
   XRC     = xwx:resources(?MODULE,["tree.xrc","treem.xrc"]),
@@ -21,22 +23,22 @@ start() ->
   wxFrame:show(Frame),
   RootId = wxTreeCtrl:addRoot(Tree#xwx.object, "Root"),
   wxTreeCtrl:appendItem(Tree#xwx.object, RootId, "anItem"),
-  loop(M1,M2,Tree,Exit).
+  loop(#state{menu1=M1,menu2=M2,tree=Tree,exit=Exit}).
 
 -define(event(X,Y), #wx{id=_ID, event=#wxCommand{type=Y}} when _ID==X#xwx.id).
 
-loop(M1,M2,Tree,Exit) ->
+loop(S) ->
   receive
     #wx{event=#wxClose{}} ->
       io:format("Got ~p ~n", [close]),
       erlang:halt();
-    ?event(Tree,Act) ->
-      io:format("Got ~p ~n", [{Tree,Act}]),
-      loop(M1,M2,Tree,Exit);
-    ?event(Exit,_) ->
+    ?event(S#state.tree,Act) ->
+      io:format("Got ~p ~n", [{S#state.tree,Act}]),
+      loop(S);
+    ?event(S#state.exit,_) ->
       io:format("Got ~p ~n", [exit]),
       erlang:halt();
     Ev ->
       io:format("Got ~p ~n", [Ev]),
-      loop(M1,M2,Tree,Exit)
+      loop(S)
   end.

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<resource xmlns="http://www.wxwindows.org/wxxrc" version="2.3.0.1">
+	<object class="wxMenuBar" name="menubar1">
+		<label>MenuBar</label>
+		<object class="wxMenu" name="menu1">
+			<label>Menu</label>
+			<object class="wxMenuItem" name="menuItem1">
+				<label>menuitem1</label>
+				<help></help>
+			</object>
+			<object class="separator" />
+			<object class="wxMenuItem" name="menuItem2">
+				<label>menuitem2</label>
+				<help></help>
+			</object>
+		</object>
+	</object>
+</resource>
